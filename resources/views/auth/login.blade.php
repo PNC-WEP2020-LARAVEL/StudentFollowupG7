@@ -1,12 +1,6 @@
 @extends('template')
 @section('content')
 <div class="container mt-5">
-<button class="btn btn-warning float-right text-white">
-    
-    @if (Route::has('register'))
-    <a href="{{ route('register') }}">Register</a>
-@endif
-</button>
     <div class="row justify-content-center">
         <div class="col-md-6 mt-5">
             <div class="card mt-5">
