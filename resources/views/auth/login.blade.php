@@ -1,15 +1,9 @@
-@extends('template')
+@extends('layouts.app')
 @section('content')
 <div class="container mt-5">
-<button class="btn btn-warning float-right text-white">
-    
-    @if (Route::has('register'))
-    <a href="{{ route('register') }}">Register</a>
-@endif
-</button>
     <div class="row justify-content-center">
         <div class="col-md-6 mt-5">
-            <div class="card mt-5">
+            <div class="card">
                 <div class="card-header"><h3>{{ __('Login') }}</h3></div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
