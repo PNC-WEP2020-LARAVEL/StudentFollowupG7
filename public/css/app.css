@@ -10883,4 +10883,23 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+#sidebar{
+  height: 600px;
+}
 
+.left-sidebar{
+  list-style-type: none;
+  
+}
+.left-sidebar li {
+  padding-top: 50px;
+}
+.left-sidebar li a{
+  color:white;
+  font-size: 20px;
+  
+ 
+}
+.left-sidebar #first-li a:hover{
+  text-decoration: none;
+}

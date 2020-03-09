@@ -18,13 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-lg">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand text-light" href="{{ url('/') }}">
-                    <h3>Laravel</h3>
+                    <h3>Student Follow Up</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -43,15 +44,15 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{Auth::user()->firstName}} {{Auth::user()->lastName}} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -71,10 +72,33 @@
                 </div>
             </div>
         </nav>
+        @if (Auth::check())
+            <div class="container-fluid ">
+                <div class="row">
+                    <div class="col-2 bg-primary" id="sidebar">
+                        <ul class="left-sidebar">
+                            <li id="first-li"><a href="" class="text-center" >List of Student</a></li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Admin <span class="caret"></span>
+                                </a>
 
-        <main class="py-4">
+                                <div class="dropdown-menu dropdown-menu-right bg-primary" aria-labelledby="navbarDropdown">
+                                    <a href="" class="dropdown-item">Add new user</a>
+                                    <a href="" class="dropdown-item">Show all user</a>
+
+                                   
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-10">@yield('content')</div>
+                </div>
+            </div>
+        @endif
+        {{-- <main class="py-4">
             @yield('content')
-        </main>
+        </main> --}}
     </div>
 </body>
 </html>
