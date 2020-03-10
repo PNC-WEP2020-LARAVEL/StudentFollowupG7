@@ -96,9 +96,13 @@
                 </div>
             </div>
         @endif
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @if (!Auth::user()){
+            <main class="py-4">
+                @yield('content')
+            </main>
+        }
+            
+        @endif
     </div>
 </body>
 </html>
