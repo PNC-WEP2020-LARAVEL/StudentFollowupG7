@@ -22,8 +22,8 @@ class CreateStudentsTable extends Migration
             $table->string('year');
             $table->string('picture');
             $table->string('province');
-            $table->string('status');
-            $table->unsignedBigInteger('user_id');
+            $table->string('status')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')
