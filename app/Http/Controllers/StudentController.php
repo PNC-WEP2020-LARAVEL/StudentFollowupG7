@@ -93,4 +93,14 @@ class StudentController extends Controller
     {
         //
     }
+
+    public function addTutor(Request $request, $id){
+        $student = Student::find($id);
+        $student->user_id = $request->tutor;
+        $student->status = "In follow up";
+        $student->save();
+        return "success";
+        
+        
+    }
 }
