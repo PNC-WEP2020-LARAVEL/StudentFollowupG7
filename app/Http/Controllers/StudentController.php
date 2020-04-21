@@ -47,6 +47,7 @@ class StudentController extends Controller
         $student->province = $request->province;
         $student->picture = $request->picture;
         $student->save();
+        return redirect('students'); 
     }
 
     /**
@@ -97,10 +98,15 @@ class StudentController extends Controller
     public function addTutor(Request $request, $id){
         $student = Student::find($id);
         $student->user_id = $request->tutor;
-        $student->status = "In follow up";
+        $student->status = "Follow up";
         $student->save();
-        return "success";
-        
-        
+        return redirect('students'); 
+    }
+    public function outFollowUp($id){
+        $student = Student::find($id);
+        $student->status = "Out follow up";
+        $student->user_id = null;
+        $student->save();
+        return redirect('students'); 
     }
 }
