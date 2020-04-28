@@ -7,14 +7,12 @@
 </div>
 <div class="main">
     <div class="container mt-5">
-        <div class="row justify-content-center mt-5">
+        <div class="row justify-content-center">
             <div class="col-md-8 mt-3">
                 <div class="card">
-                    <div class="card-header">
-                        <h3>Add Student</h3>
-                    </div>
+                    <div class="card-header">{{ __('Register') }}</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('students.store') }}">
+                        <form method="POST" action="{{ route('users.store') }}">
                             @csrf
                             <div class="form-group row">
                                 <label for="firstName" class="col-md-4 col-form-label text-md-right">{{ __('FirstName') }}</label>
@@ -42,19 +40,30 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="form-group row">
-                                <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('gender') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-control" name="gender">
-                                        <option selected></option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email">
+
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('role') }}</label>
+
+                                <div class="col-md-6">
+                                    <select class="form-control" name="role">
+                                        <option value="1">Admin</option>
+                                        <option value="2">Tutor</option>
                                     </select>
 
-
-                                    @error('gender')
+                                    @error('role')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -62,52 +71,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="class" class="col-md-4 col-form-label text-md-right">{{ __('class') }}</label>
+                                <label for="position" class="col-md-4 col-form-label text-md-right">{{ __('Position') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-control" name="class">
-                                        <option selected></option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="SNA">SNA</option>
-                                        <option value="Web Programming">Web Programming</option>
-                                    </select>
+                                    <input id="position" type="text" class="form-control @error('position') is-invalid @enderror" name="position" required autocomplete="email">
 
-
-                                    @error('class')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="year" class="col-md-4 col-form-label text-md-right">{{ __('year') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="year" type="text" class="form-control @error('year') is-invalid @enderror" name="year" required autocomplete="year">
-
-                                    @error('year')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="province" class="col-md-4 col-form-label text-md-right">{{ __('province') }}</label>
-
-                                <div class="col-md-6">
-                                    <select class="form-control" name="province">
-                                        <option selected></option>
-                                        <option value="Banteay Meanchey">Banteay Meanchey</option>
-                                        <option value="Kampong Cham">Kampong Cham</option>
-                                        <option value="Prey Veng">Prey Veng</option>
-                                        <option value="Battambang">Battambang</option>
-                                        <option value="Oddor Meanchey">Oddor Meanchey</option>
-                                    </select>
-                                    @error('province')
+                                    @error('position')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -116,16 +85,24 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('picture') }}</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="picture" type="file" class="form-control @error('picture') is-invalid @enderror" name="picture" required autocomplete="picture">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                    @error('picture')
+                                    @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
 
@@ -143,5 +120,4 @@
         </div>
     </div>
 </div>
-
 @endsection
