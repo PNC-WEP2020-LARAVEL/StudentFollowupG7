@@ -34,7 +34,7 @@
                            <td>{{$student->class}}</td>
                            <td>{{$student->year}}</td>
                            <td class="text-danger">{{$student->status}}</td>
-                           <td>{{$student->user_id}}</td>
+                           <td>{{$student->user['firstName']." ".$student->user['lastName']}}</td>
                            <td>
                                <div class="form-inline">
                                    <!-- Button to Open the Modal -->
