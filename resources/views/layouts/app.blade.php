@@ -23,7 +23,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-lg">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-primary shadow-lg" id="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand text-light" href="{{ url('/') }}">
                     <h3>Student Follow Up</h3>
@@ -47,7 +47,7 @@
                         </li>
                         @endif --}}
                         @else
-                       
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{Auth::user()->firstName}} {{Auth::user()->lastName}} <span class="caret"></span>
@@ -64,7 +64,7 @@
                                 </form>
                             </div>
                         </li>
-                       
+
                         @endguest
                     </ul>
                 </div>
@@ -90,15 +90,17 @@
                             </li>
                         </ul>
                     </div> --}}
-{{--         
+        {{--
         <div class="col-10">@yield('content')</div>
     </div>
     </div>
     @endif --}}
-    
-    <main class="py-4">
-        @yield('content')
-    </main>
+
+
+        <main class="py-4">
+            @yield('content')
+        </main>
     </div>
 </body>
 </html>
+

@@ -3,17 +3,16 @@
    @section('content')
    <!-- Styles -->
    <div class="sidenav bg-primary">
-       <a href="{{route('students.index')}}">List All Students</a>
-       <a href="#">List All User</a>
-       <a href="#">Create New User</a>
-       
+        <a href="{{route('students.index')}}">List All Students</a>
+        <a href="{{route('users.index')}}">List All User</a>
+        
    </div>
    <div class="main">
        <div class="container">
            <div class="row">
-               <div class="col-12">
+               <div class="col-12 mt-5">
+                    <h1 class="mt-5 text-center">List of all Studnets</h1>
                    <a href="{{route('students.create')}}" class="btn btn-primary text-light">Add Student</a>
-
                    <table class="table table-bordered mt-3">
                        <tr>
                            <th>ID</th>
