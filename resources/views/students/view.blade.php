@@ -27,7 +27,10 @@
                        </tr>
                        @foreach($students as $student)
                        <tr>
-                           <td>{{$student->id}}</td>
+                           <td >
+                                <a href="{{route('students.show', $student->id)}}"><i class="material-icons float-left">remove_red_eye</i></a> &nbsp;
+                                {{$student->id}}
+                           </td>
                            <td>{{$student->firstName}}</td>
                            <td>{{$student->lastName}}</td>
                            <td>{{$student->gender}}</td>

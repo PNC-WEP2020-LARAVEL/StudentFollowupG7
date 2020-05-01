@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use App\User;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -45,7 +46,13 @@ class StudentController extends Controller
         $student->class = $request->class;
         $student->year = $request->year;
         $student->province = $request->province;
-        $student->picture = $request->picture;
+        if ($request->hasfile('image')){
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). ".".$extension;
+            $file->move('img/', $filename);
+            $student->picture = $filename;
+        }
         $student->save();
         return redirect('students'); 
     }
@@ -56,9 +63,10 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        //
+        $student = Student::find($id);
+        return view('students.detail', compact('student'));
     }
 
     /**

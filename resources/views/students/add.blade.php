@@ -14,7 +14,7 @@
                         <h3>Add Student</h3>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('students.store') }}">
+                        <form method="POST" action="{{ route('students.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
                                 <label for="firstName" class="col-md-4 col-form-label text-md-right">{{ __('FirstName') }}</label>
@@ -119,7 +119,7 @@
                                 <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('picture') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="picture" type="file" class="form-control @error('picture') is-invalid @enderror" name="picture" required autocomplete="picture">
+                                    <input id="picture" type="file" class="form-control @error('picture') is-invalid @enderror" name="image" required autocomplete="picture">
 
                                     @error('picture')
                                     <span class="invalid-feedback" role="alert">
