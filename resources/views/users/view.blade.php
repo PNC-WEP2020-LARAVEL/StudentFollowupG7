@@ -22,7 +22,10 @@
                         </tr>
                         @foreach ($users as $user)
                         <tr>
-                            <td>{{$user->id}}</td>
+                            <td>
+                                <a href="{{route('users.edit', $user->id)}}"><i class="material-icons float-left">edit</i></a> &nbsp;
+                                {{$user->id}}
+                            </td>
                             <td>{{$user->firstName}}</td>
                             <td>{{$user->lastName}}</td>
                             <td>{{$user->position}}</td>
