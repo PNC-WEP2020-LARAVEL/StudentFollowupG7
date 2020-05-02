@@ -21,6 +21,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!-- JQuery -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -72,33 +74,6 @@
                 </div>
             </div>
         </nav>
-        {{-- @if (Auth::check()) --}}
-        {{-- <div class="container-fluid ">
-                <div class="row">
-                    <div class="col-2 bg-primary" id="sidebar">
-                        <ul class="left-sidebar">
-                            <li id="first-li"><a href="" class="text-center" >List of Student</a></li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Admin <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right bg-primary" aria-labelledby="navbarDropdown">
-                                    <a href="" class="dropdown-item">Add new user</a>
-                                    <a href="" class="dropdown-item">Show all user</a>
-
-                                   
-                                </div>
-                            </li>
-                        </ul>
-                    </div> --}}
-        {{--
-        <div class="col-10">@yield('content')</div>
-    </div>
-    </div>
-    @endif --}}
-
-
         <main class="py-4">
             @yield('content')
         </main>
