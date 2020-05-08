@@ -15,7 +15,7 @@
                 <div class="col-6 mt-3">
                    <div class="card">
                         <div class="card-body">
-                             <img class="mx-auto d-block" src="{{asset('img/'.$student->picture)}}" alt="Smiley face" height="180" width="180" class="img-fluid">
+                             <img class="mx-auto d-block" src="{{asset('img/'.$student->picture)}}" height="180" width="180" class="img-fluid">
                             <br>
                             <p>Firstname: {{$student->firstName}}</p>
                             <p>Lastname: {{$student->lastName}}</p>
@@ -24,7 +24,13 @@
                             <p>Year: {{$student->year}}</p>
                             <p>Province: {{$student->province}}</p>
                             <p>Status: {{$student->status}}</p>
-                            <p>Tutor: {{$student->user['firstName']." ".$student->user['lastName']}}</p>
+                            @if ($student->user_id != null)
+                             <p>Tutor: {{$student->user['firstName']." ".$student->user['lastName']}}</p>
+                                
+                            @else
+                                 <p>Tutor: No</p>
+                            @endif
+                           
                         </div>
                    </div>
                 </div>
