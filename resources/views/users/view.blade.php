@@ -23,8 +23,9 @@
                         @foreach ($users as $user)
                         <tr>
                             <td>
-                                <a href="{{route('users.edit', $user->id)}}"><i class="material-icons float-left">edit</i></a> &nbsp;
                                 {{$user->id}}
+                                <a href="{{route('users.edit', $user->id)}}"><i class="material-icons float-left">edit</i></a> &nbsp;
+                                <a href="{{route('deleteUser', $user->id)}}" onclick="return confirm('Are you sure want to delete this user?')"><i class="material-icons float-left">delete</i></a>
                             </td>
                             <td>{{$user->firstName}}</td>
                             <td>{{$user->lastName}}</td>
